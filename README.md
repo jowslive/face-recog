@@ -1,9 +1,8 @@
-#----------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------
 #											RECONHECIMENTO DE ROSTO E DETECÇÃO DE ROSTO
-#----------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------
 
-#---------------------------------- IMPORTANTE: PARA EXECUTAR ESTAS APLICAÇÕES QUE VOCÊ PRECISA TER A ---------
-#---------------------------------------------	OPENCV CONTRIB INSTALADA 	--------------------------------------
+# - IMPORTANTE: PARA EXECUTAR AS APLICAÇÕES QUE VOCÊ PRECISA TER A OPENCV CONTRIB INSTALADA -
 
 #Detector_Video.py: 	      Este arquivo detecta rostos usando cascatas de Haar. Funciona bem com vários rostos.
 
@@ -41,7 +40,7 @@
 
 #TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 54, 13, 50 #vezes. A cada vez que são criados os parâmetros. Cada vez que um reconhecedor facial LBPH será treinado e previsto na imagem de entrada. Depois que o loop for for completado, ID e confiança serão plotados.
 
-# ------------------PASTAS ----------------------------------------------------
+# ------------ PASTAS ------------
 
 #dataSet --> Contém as imagens que serão usadas para treinar o reconhecedor.
 
