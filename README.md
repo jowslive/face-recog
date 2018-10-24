@@ -33,18 +33,13 @@
 #Recogniser_Video_LBPHFace.py:   Este arquivo é o reconhecimento de rostos da alimentação da câmera usando o algoritmo de face LBPH.
 
 
-#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 200
-#                                vezes a cada vez, aumentando o número de componentes. Cada vez que um reconhecedor facial Eigen for treinado e
-#                                previsto na imagem de entrada. Depois que o loop for for concluído, ID e confiança serão plotados.
+#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 200 vezes a cada vez, aumentando o número de componentes. Cada vez que um reconhecedor facial Eigen for treinado e previsto na imagem de entrada. Depois que o loop for for concluído, ID e confiança serão plotados.
 
 
-#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 200
-#                                vezes a cada vez, aumentando o número de componentes. Cada vez que um reconhecedor de rosto Fisher for treinado e
-#                                previsto na imagem de entrada. Depois que o loop for for concluído, ID e confiança serão plotados.
+#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 200 vezes a cada vez, aumentando o número de componentes. Cada vez que um reconhecedor de rosto Fisher for treinado e previsto na imagem de entrada. Depois que o loop for for concluído, ID e confiança serão plotados.
 
 
-#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 54, 13, 50 #vezes. A cada vez que são criados os parâmetros. Cada vez que um reconhecedor facial LBPH será treinado e previsto na imagem de entrada.
-# Depois que o loop for for completado, ID e confiança serão plotados.
+#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 54, 13, 50 #vezes. A cada vez que são criados os parâmetros. Cada vez que um reconhecedor facial LBPH será treinado e previsto na imagem de entrada. Depois que o loop for for completado, ID e confiança serão plotados.
 
 # ------------------PASTAS ----------------------------------------------------
 
