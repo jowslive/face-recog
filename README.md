@@ -2,7 +2,7 @@
 #											RECONHECIMENTO DE ROSTO E DETECÇÃO DE ROSTO
 # -------------------------------------------------------------------
 
-# - IMPORTANTE: PARA EXECUTAR AS APLICAÇÕES QUE VOCÊ PRECISA TER A OPENCV CONTRIB INSTALADA -
+# - IMPORTANTE: PARA EXECUTAR AS APLICAÇÕES VOCÊ PRECISA TER A OPENCV CONTRIB INSTALADA -
 
 #Detector_Video.py: 	      Este arquivo detecta rostos usando cascatas de Haar. Funciona bem com vários rostos.
 
