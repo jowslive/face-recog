@@ -8,8 +8,7 @@
 #Detector_Video.py: 	      Este arquivo detecta rostos usando cascatas de Haar. Funciona bem com vários rostos.
 
 
-#Face_Capture_With_Rotate.py: A execução deste arquivo irá capturar 50 imagens de uma pessoa na frente da câmera. Isso fará com que as fotos não sejam escuras e
-#                             também fará com que o rosto fique "reto".
+#Face_Capture_With_Rotate.py: A execução deste arquivo irá capturar 50 imagens de uma pessoa na frente da câmera. Isso fará com que as fotos não sejam escuras e também fará com que o rosto fique "reto".
 
 
 #Free_Rotate.py:  Este arquivo mostra a função de rotação. Lembrar de remover o comentário da linha 153 em NameFind.py. Isso mostrará a imagem corrigindo o deslocamento.
