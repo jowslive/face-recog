@@ -1,69 +1,57 @@
-<<<<<<< HEAD
-#-------------------------------------------------------------------------------------------------------------------------------------------------
-#											FACE RECOGNITION & FACE DETECTION
-#											LAHIRU DINALANKARA - AKA SPIKE
-#-------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------
+#											RECONHECIMENTO DE ROSTO E DETECÇÃO DE ROSTO
+# -------------------------------------------------------------------
 
-#---------------------------------- IMPORTENT: TO RUN THESE APPLICATIONS YOU NEED TO HAVE ----------------------------------
-#---------------------------------------------	OPENCV CONTRIB INSTALLED 	---------------------------------------------
+# - IMPORTANTE: PARA EXECUTAR AS APLICAÇÕES VOCÊ PRECISA TER A OPENCV CONTRIB INSTALADA -
 
-#Detector_Video.py: 	This file detects faces using Haar cascades. It works fine with multiple faces.
+#Detector_Video.py: 	      Este arquivo detecta rostos usando cascatas de Haar. Funciona bem com vários rostos.
 
 
-#Face_Capture_With_Rotate.py: Running this file will capture 50 images of a person infront of 	the camera. It will make sure photos are not dark and 
-#							  it will also make the face is straight.
+#Face_Capture_With_Rotate.py: A execução deste arquivo irá capturar 50 imagens de uma pessoa na frente da câmera. Isso fará com que as fotos não sejam escuras e também fará com que o rosto fique "reto".
 
 
-#Free_Rotate.py: This file shows the rotate function. Make sure you uncomment line 153 in NameFind.py This will show the image correcting the offset.
+#Free_Rotate.py:  Este arquivo mostra a função de rotação. Lembrar de remover o comentário da linha 153 em NameFind.py. Isso mostrará a imagem corrigindo o deslocamento.
 
 
  
-#NameFind.py: This file contains all the functions.
+#NameFind.py:     Este arquivo contém todas as funções.
 
 
-#Trainer_All.py: This file will train all the recognition algorithms using the images in the dataSet folder.
+#Trainer_All.py:  Este arquivo irá treinar todos os algoritmos de reconhecimento usando as imagens na pasta dataSet.
 
 
-#Recogniser_Image_All_Algorithms.py: This application will detect and recognise faces from images. Diffrent images can be selected.
+#Recogniser_Image_All_Algorithms.py: Esta aplicação irá detectar e reconhecer rostos de imagens. Imagens diferentes podem ser selecionadas.
 
 
-#Recogniser_Video_EigenFace.py: This File is the will recognise faces from the camera feed using Eigen face algorithm.
+#Recogniser_Video_EigenFace.py:  Este arquivo é o reconhecimento de rostos da alimentação da câmera usando o algoritmo Eigen face.
 
 
-#Recogniser_video_FisherFace.py: This File is the will recognise faces from the camera feed using Fisher face algorithm.
+#Recogniser_video_FisherFace.py: Este arquivo é o reconhecimento de faces da alimentação da câmera usando o algoritmo de face da Fisher.
 
 
-#Recogniser_Video_LBPHFace.py:  This File is the will recognise faces from the camera feed using LBPH face algorithm.
+#Recogniser_Video_LBPHFace.py:   Este arquivo é o reconhecimento de rostos da alimentação da câmera usando o algoritmo de face LBPH.
 
 
-#TestDataCollector_EiganFace.py: This file is the test application. It will take in an image the dataset will be loaded. A loop will run 200 
-#								times each time increamenting the number of components. Each time an Eigen face recogniser will be trained and 
-#								predicted on the input image. After the for loop is compleated, ID and confidence will be ploted.
+#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 200 vezes a cada vez, aumentando o número de componentes. Cada vez que um reconhecedor facial Eigen for treinado e previsto na imagem de entrada. Depois que o loop for for concluído, ID e confiança serão plotados.
 
 
-#TestDataCollector_EiganFace.py: This file is the test application. It will take in an image the dataset will be loaded. A loop will run 200 
-#								times each time increamenting the number of components. Each time an Fisher face recogniser will be trained and 
-#								predicted on the input image. After the for loop is compleated, ID and confidence will be ploted.
+#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 200 vezes a cada vez, aumentando o número de componentes. Cada vez que um reconhecedor de rosto Fisher for treinado e previsto na imagem de entrada. Depois que o loop for for concluído, ID e confiança serão plotados.
 
 
-#TestDataCollector_EiganFace.py: This file is the test application. It will take in an image the dataset will be loaded. A loop will run 54, 13, 50 times.
-#								each time increamenting the Parameters. Each time an LBPH face recogniser will be trained and predicted on the input image. 
-#								After the for loop is compleated, ID and confidence will be ploted.
+#TestDataCollector_EiganFace.py: Este arquivo é o aplicativo de teste. Ele irá receber uma imagem que o conjunto de dados será carregado. Um loop será executado 54, 13, 50 #vezes. A cada vez que são criados os parâmetros. Cada vez que um reconhecedor facial LBPH será treinado e previsto na imagem de entrada. Depois que o loop for for completado, ID e confiança serão plotados.
 
-# ------------------FOLDERS -----------
+# ------------ PASTAS ------------
 
-#dataSet --> Contains the images that will be used to train the recogniser.
+#dataSet --> Contém as imagens que serão usadas para treinar o reconhecedor.
 
-#FlowCharts --> Contains flow chart designed using Microsoft Visio and png files
+#FlowCharts --> Contém fluxograma projetado usando o Microsoft Visio e arquivos png
 
-#Haar --> Contains Haar Cascades of OpenCV used in the applications
+#Haar --> Contém as Cascatas Haar do OpenCV usadas nas aplicações
 
-#Plots --> Contains the plots taken using Me4.jpg and Sam.jpg
+#Plots --> Contém os gráficos obtidos usando Me4.jpg e Sam.jpg
 
-#Recogniser --> Contains the saved XML files by reconisers
+#Recogniser --> Contém os arquivos XML salvos por reconisers
 
-#SaveData --> Contains the data saved by the tester applications
+#SaveData --> Contém os dados salvos pelos aplicativos testadores
 
 
-
->>>>>>> 2c7c5a4115f56b99c07dc39c9a0f5095dc597248
