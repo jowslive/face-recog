@@ -7,9 +7,9 @@ import NameFind
 
 # --- import the Haar cascades for face and eye ditection
 
-face_cascade = cv2.CascadeClassifier('Haar/haarcascade_frontalcatface.xml')
-eye_cascade = cv2.CascadeClassifier('Haar/haarcascade_eye.xml')
-spec_cascade = cv2.CascadeClassifier('Haar/haarcascade_eye_tree_eyeglasses.xml')
+face_cascade = cv2.CascadeClassifier('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Haar/haarcascade_frontalcatface.xml')
+eye_cascade = cv2.CascadeClassifier('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Haar/haarcascade_eye.xml')
+spec_cascade = cv2.CascadeClassifier('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Haar/haarcascade_eye_tree_eyeglasses.xml')
 
 # FACE RECOGNISER OBJECT
 LBPH = cv2.face.LBPHFaceRecognizer_create(2, 2, 7, 7, 20)
@@ -17,13 +17,13 @@ EIGEN = cv2.face.EigenFaceRecognizer_create(10, 5000)
 FISHER = cv2.face.FisherFaceRecognizer_create(5, 500)
 
 # Load the training data from the trainer to recognise the faces
-LBPH.read("Recogniser/trainingDataLBPH.xml")
-EIGEN.read("Recogniser/trainingDataEigan.xml")
-FISHER.read("Recogniser/trainingDataFisher.xml")
+LBPH.read("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Recogniser/trainingDataLBPH.xml")
+EIGEN.read("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Recogniser/trainingDataEigan.xml")
+FISHER.read("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Recogniser/trainingDataFisher.xml")
 
 # ------------------------------------  PHOTO INPUT  -----------------------------------------------------
 
-img = cv2.imread('Me4.jpg')                  # ------->>> THE ADDRESS TO THE PHOTO
+img = cv2.imread('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Me4.jpg')                  # ------->>> THE ADDRESS TO THE PHOTO
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                # Convert the Camera to gray
 faces = face_cascade.detectMultiScale(gray, 1.3, 4)         # Detect the faces and store the positions
