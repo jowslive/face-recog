@@ -12,16 +12,17 @@ glass_cas = cv2.CascadeClassifier('Haar/haarcascade_eye_tree_eyeglasses.xml')
 WHITE = [255, 255, 255]
 
 def FileRead():
-    Info = open("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Names.txt", "r")                       # Open th text file in readmode
+#   Info = open("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Names.txt", "r")
+    Info = open("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Names.txt", "r")                       # Open th text file in readmode
     NAME = []                                           # The tuple to store Names
     while (True):                                       # Read all the lines in the file and store them in two tuples
         Line = Info.readline()
         if Line == '':
             break
         NAME.append (Line.split(",")[1].rstrip())
-       
+
     return NAME                                     # Return the two tuples
-        
+
 Names = FileRead()                                 # Run the above Function to get the ID and Names Tuple
 
 #     ------------------- FUNCTION TO FIND THE NAME  -----------------------------------------------------------
@@ -38,7 +39,7 @@ def ID2Name(ID, conf):
 #     ------------------- THIS FUNCTION READ THE FILE AND ADD THE NAME TO THE END OF THE FILE  -----------------
 
 
-def AddName():
+#def AddName():
     Name = raw_input('Enter Your Name ')
     Info = open("Names.txt", "r+")
     ID = ((sum(1 for line in Info))+1)
@@ -63,14 +64,14 @@ def DispID(x, y, w, h, NAME, Image):
           Name_X_pos= Name_X_pos - (Name_X_pos +10 + (len(NAME) * 7) - (Image.shape[1]))
     if Name_y_pos < 0:
         Name_y_pos = Name_y_pos = y + h + 10
-          
+
  #  ------------------------------------    THE DRAWING OF THE BOX AND ID   --------------------------------------
-    
+
     draw_box(Image, x, y, w, h)
-    
-                  
+
+
     cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos +10 + (len(NAME) * 7)), int(Name_y_pos-1)), (0,0,0), -2)   # Draw a Black Rectangle over the face frame
-    cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos +10 + (len(NAME) * 7)), int(Name_y_pos-1)), WHITE, 1) 
+    cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos +10 + (len(NAME) * 7)), int(Name_y_pos-1)), WHITE, 1)
     cv2.putText(Image, NAME, (int(Name_X_pos), int(Name_y_pos - 10)), cv2.FONT_HERSHEY_DUPLEX, int(1), WHITE)  # Print the name of the ID
 
 
@@ -88,7 +89,7 @@ def draw_box(Image, x, y, w, h):
 # ---------------     SECOND ID BOX      ----------------------
 def DispID2(x, y, w, h, NAME, Image):
 
-#  --------------------------------- THE POSITION OF THE ID BOX  -------------------------------------------------        
+#  --------------------------------- THE POSITION OF THE ID BOX  -------------------------------------------------
 
     Name_y_pos = y - 40
     Name_X_pos = x + w/2 - (len(NAME)*7/2)
@@ -99,17 +100,17 @@ def DispID2(x, y, w, h, NAME, Image):
           Name_X_pos= Name_X_pos - (Name_X_pos +10 + (len(NAME) * 7) - (Image.shape[1]))
     if Name_y_pos < 0:
         Name_y_pos = Name_y_pos = y + h + 10
-          
+
  #  ------------------------------------    THE DRAWING OF THE BOX AND ID   --------------------------------------
     cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos) +10 + (len(NAME) * 7), int(Name_y_pos-1)), (0,0,0), -2)           # Draw a Black Rectangle over the face frame
-    cv2.rectangle(Image, (int(Name_X_pos-10), Name_y_pos-25), (int(Name_X_pos) +10 + (len(NAME) * 7), int(Name_y_pos-1)), WHITE, 1) 
+    cv2.rectangle(Image, (int(Name_X_pos-10), Name_y_pos-25), (int(Name_X_pos) +10 + (len(NAME) * 7), int(Name_y_pos-1)), WHITE, 1)
     cv2.putText(Image, NAME, (int(Name_X_pos), int(Name_y_pos - 10)), cv2.FONT_HERSHEY_DUPLEX, 1, WHITE)                         # Print the name of the ID
 
 
 # ---------------     THIRD ID BOX      ----------------------
 def DispID3(x, y, w, h, NAME, Image):
 
-#  --------------------------------- THE POSITION OF THE ID BOX  -------------------------------------------------        
+#  --------------------------------- THE POSITION OF THE ID BOX  -------------------------------------------------
 
     Name_y_pos = y - 70
     Name_X_pos = x + w/2 - (len(NAME)*7/2)
@@ -120,10 +121,10 @@ def DispID3(x, y, w, h, NAME, Image):
           Name_X_pos= Name_X_pos - (Name_X_pos +10 + (len(NAME) * 7) - (Image.shape[1]))
     if Name_y_pos < 0:
         Name_y_pos = Name_y_pos = y + h + 10
-          
+
  #  ------------------------------------    THE DRAWING OF THE BOX AND ID   --------------------------------------
     cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos) +10 + (len(NAME) * 7), int(Name_y_pos-1)), (0,0,0), -2)           # Draw a Black Rectangle over the face frame
-    cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos) +10 + (len(NAME) * 7), int(Name_y_pos-1)), WHITE, 1) 
+    cv2.rectangle(Image, (int(Name_X_pos-10), int(Name_y_pos-25)), (int(Name_X_pos) +10 + (len(NAME) * 7), int(Name_y_pos-1)), WHITE, 1)
     cv2.putText(Image, NAME, (int(Name_X_pos), int(Name_y_pos - 10)), cv2.FONT_HERSHEY_DUPLEX, int(1), WHITE)                         # Print the name of the ID
 
 

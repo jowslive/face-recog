@@ -26,7 +26,7 @@ while True:
         eyes = eye_cascade.detectMultiScale(gray_face)
         for (ex, ey, ew, eh) in eyes:
             ID, conf = recognise.predict(gray_face)                              # Determine the ID of the photo
-            NAME = NameFind.ID2Name(ID ,conf)      
+            NAME = NameFind.ID2Name(ID ,conf)
             NameFind.DispID(x, y, w, h, NAME, gray)
     cv2.imshow('FisherFace Face Recognition System', gray)                       # Show the video
     if cv2.waitKey(1) & 0xFF == ord('q'):                                        # Quit if the key is Q
