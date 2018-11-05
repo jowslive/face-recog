@@ -1,69 +1,74 @@
-# ------------------------------ FACE RECOGNISER FOR ALL THE ALGORITHMS  ---------------------------------
-# ---------------------------------- BY LAHIRU DINALANKARA AKA SPIKE ------------------------------------
+# ------------------------------ RECONHECEDOR FACIAL PARA TODOS OS ALGORITMOS  ---------------------------------
 
-import cv2                  #   Importing the opencv
-#import numpy as np          #   Import Numarical Python
+import cv2                   #   Importando o OPENCV
+#import numpy as np          #  Importando o Numerical Python - Não necessário
 import NameFind
 
-# --- import the Haar cascades for face and eye ditection
+# ---------------------------------------------------------------------------------------
+# Importando os arquivos Haar Cascades para reconhecimento da face e olho
+
 #JÃO
-#face_cascade = cv2.CascadeClassifier('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Haar/haarcascade_frontalcatface.xml')
-#eye_cascade = cv2.CascadeClassifier('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Haar/haarcascade_eye.xml')
-#spec_cascade = cv2.CascadeClassifier('C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Haar/haarcascade_eye_tree_eyeglasses.xml')
+face_cascade = cv2.CascadeClassifier("C:/Users/joaob/Documents/Github/face-recog/Python/Haar/haarcascade_frontalcatface.xml")
+eye_cascade = cv2.CascadeClassifier("C:/Users/joaob/Documents/Github/face-recog/Python/Haar/haarcascade_eye.xml")
+spec_cascade = cv2.CascadeClassifier("C:/Users/joaob/Documents/Github/face-recog/Python/Haar/haarcascade_eye_tree_eyeglasses.xml")
 
 #ALEK's
 
-face_cascade = cv2.CascadeClassifier("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Haar/haarcascade_frontalcatface.xml")
-eye_cascade = cv2.CascadeClassifier("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Haar/haarcascade_eye.xml")
-spec_cascade = cv2.CascadeClassifier("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Haar/haarcascade_eye_tree_eyeglasses.xml")
+#face_cascade = cv2.CascadeClassifier("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Haar/haarcascade_frontalcatface.xml")
+#eye_cascade = cv2.CascadeClassifier("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Haar/haarcascade_eye.xml")
+#spec_cascade = cv2.CascadeClassifier("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Haar/haarcascade_eye_tree_eyeglasses.xml")
 
-# FACE RECOGNISER OBJECT
+# ---------------------------------------------------------------------------------------
+# Objeto reconhecedor de face
 LBPH = cv2.face.LBPHFaceRecognizer_create(2, 2, 7, 7, 20)
 #EIGEN = cv2.face.EigenFaceRecognizer_create(10, 5000)
 #FISHER = cv2.face.FisherFaceRecognizer_create(5, 500)
 
-# Load the training data from the trainer to recognise the faces
+# ---------------------------------------------------------------------------------------
+# Carregando os dados de treinamento feitos pelo treinador para reconhecer as faces
+
 #JÃO
-
-#LBPH.read("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Recogniser/trainingDataLBPH.xml")
-#EIGEN.read("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Recogniser/trainingDataEigan.xml")
-#FISHER.read("C:/Users/joaob/Downloads/Free Download Manager/SpikeSL/SpikeSL/Python/Recogniser/trainingDataFisher.xml")
-
+LBPH.read("C:/Users/joaob/Documents/Github/face-recog/Python/Recogniser/trainingDataLBPH.xml")
+#EIGEN.read("C:/Users/joaob/Documents/Github/face-recog/Python/Recogniser/trainingDataEigan.xml")
+#FISHER.read("C:/Users/joaob/Documents/Github/face-recog/Python/Recogniser/trainingDataFisher.xml")
 
 #ALEK'S
-
-LBPH.read("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Recogniser/trainingDataLBPH.xml")
+#LBPH.read("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Recogniser/trainingDataLBPH.xml")
 #EIGEN.read("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Recogniser/trainingDataEigan.xml")
 #FISHER.read("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Recogniser/trainingDataFisher.xml")
 
-# ------------------------------------  PHOTO INPUT  -----------------------------------------------------
+# ---------------------------------------------------------------------------------------
+# ------------------------------------  ADICIONANDO A FOTO  -----------------------------------------------------
+# Endereço / Caminho da foto
+#img = cv2.imread("C:/Users/Alek's/Documents/GitHub/face-recog/Python/1_1.jpg")      
+img = cv2.imread("C:/Users/joaob/Documents/Github/face-recog/Python/1_1.jpg")   
 
-img = cv2.imread("C:/Users/Alek's/Documents/GitHub/face-recog/Python/1_1.jpg")                  # ------->>> THE ADDRESS TO THE PHOTO
 
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                # Convert the Camera to gray
-faces = face_cascade.detectMultiScale(gray, 1.3, 4)         # Detect the faces and store the positions
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                # Converte a foto para escala de cinza
+faces = face_cascade.detectMultiScale(gray, 1.3, 4)         # Detecta as faces e guarda as posições
 #print(faces)
 
-for (x, y, w, h) in faces:                                  # Frames  LOCATION X, Y  WIDTH, HEIGHT
+for (x, y, w, h) in faces:                                  # EIXOS X, Y, LARGURA, ALTURA
 
-    Face = cv2.resize((gray[y: y+h, x: x+w]), (110, 110))   # The Face is isolated and cropped
+    Face = cv2.resize((gray[y: y+h, x: x+w]), (110, 110))   # A face é isolada e cortada
 
-    ID, conf = LBPH.predict(Face)                           # LBPH RECOGNITION
+    ID, conf = LBPH.predict(Face)                           # MÉTODO LBPH RECONHECIMENTO FACIAL
     print(ID)
     NAME = NameFind.ID2Name(ID, conf)
     NameFind.DispID(x, y, w, h, NAME, gray)
 
-#    ID, conf = EIGEN.predict(Face)                          # EIGEN FACE RECOGNITION
-#    NAME = NameFind.ID2Name(ID, conf)
-#    NameFind.DispID3(x, y, w, h, NAME, gray)
+#   ID, conf = EIGEN.predict(Face)                         # MÉTODO EIGEN RECONHECIMENTO FACIAL
+#   NAME = NameFind.ID2Name(ID, conf)
+#   NameFind.DispID3(x, y, w, h, NAME, gray)
 
-#    ID, conf = FISHER.predict(Face)                         # FISHER FACE RECOGNITION
-#    NAME = NameFind.ID2Name(ID, conf)
-#    NameFind.DispID2(x, y, w, h, NAME, gray)
+#   ID, conf = FISHER.predict(Face)                        # MÉTODO FISHER RECONHECIMENTO
+#   NAME = NameFind.ID2Name(ID, conf)
+#   NameFind.DispID2(x, y, w, h, NAME, gray)
+
 crop_img = gray[y:y+h, x:x+w]
 
 cv2.imshow("cropped", crop_img)
 
-cv2.imshow('LBPH Face Recognition System', gray)           # IMAGE DISPLAY
+cv2.imshow('LBPH Face Recognition System', gray)            # Mostrando a imagem
 cv2.waitKey()
 #cv2.destroyAllWindows()
