@@ -1,4 +1,3 @@
-
 # ------------------------------ RECONHECEDOR FACIAL PARA TODOS OS ALGORITMOS  ---------------------------------
 
 import cv2                   #   Importando o OPENCV

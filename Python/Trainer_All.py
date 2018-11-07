@@ -1,5 +1,4 @@
-# -------------------------- TRAINER FOR ALL THE ALGORITHMS IN FACE RECOGNITION -------------------------------------------
-# ---------------------------------- BY LAHIRU DINALANKARA AKA SPIKE ------------------------------------------------------
+# -------------------------- TREINADOR PARA TODOS OS ALGORITMOS EM RECONHECIMENTO FACIAL-------------------------------------------
 
 import os                                               # importing the OS for path
 import cv2                                              # importing the OpenCV library
@@ -28,18 +27,18 @@ def getImageWithID (path):
 IDs, FaceList = getImageWithID(path)
 
 # ------------------------------------ TRAING THE RECOGNISER ----------------------------------------
-print('TRAINING......')
-EigenFace.train(FaceList, IDs)                          # The recongniser is trained using the images
-print('EIGEN FACE RECOGNISER COMPLETE...')
+print('TREINANDO OS ARQUIVOS......')
+EigenFace.train(FaceList, IDs)                          # O reconhecedor é treinado usando as imagens
+print('MÉTODO EIGEN DE RECONHECIMENTO FACIAL COMPLETADO...')
 EigenFace.save('Recogniser/trainingDataEigan.xml')
-print('FILE SAVED..')
+print('ARQUIVO SALVO..')
 FisherFace.train(FaceList, IDs)
-print('FISHER FACE RECOGNISER COMPLETE...')
+print('MÉTODO FISHER DE RECONHECIMENTO FACIAL COMPLETADO...')
 FisherFace.save('Recogniser/trainingDataFisher.xml')
-print('Fisher Face XML saved... ')
+print('Arquivo Fisher XML salvo... ')
 LBPHFace.train(FaceList, IDs)
-print('LBPH FACE RECOGNISER COMPLETE...')
+print('MÉTODO LBPH RECONHECIDOR FACIAL COMPLETADO...')
 LBPHFace.save('Recogniser/trainingDataLBPH.xml')
-print ('ALL XML FILES SAVED...')
+print ('TODOS ARQUIVOS XML FORAM SALVOS...')
 
 cv2.destroyAllWindows()

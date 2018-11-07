@@ -1,6 +1,5 @@
 # ------------ COLLECTS DATA ON LBPH BY RUNNING IT ON A GIVEN IMAGE AND SAVING DATA TO A TEXT FILE -------------
 # ---------------------- SAVES THE DATA IN 3 TEXT FILES  & PLOTS THE DATA --------------------------------------
-# ---------------------------- BY LAHIRU DINALANKARA  - AKA SPIKE ----------------------------------------------
 
 import os               # importing the OS for path
 import cv2              # importing the OpenCV library
