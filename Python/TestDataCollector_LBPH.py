@@ -1,5 +1,6 @@
-# ------------ COLLECTS DATA ON LBPH BY RUNNING IT ON A GIVEN IMAGE AND SAVING DATA TO A TEXT FILE -------------
-# ---------------------- SAVES THE DATA IN 3 TEXT FILES  & PLOTS THE DATA --------------------------------------
+# ------------ COLETA A DATA USANDO O MÉTODO LBPH EM UMA CERTA IMAGEM E SALVA A DATA EM UM ARQUIVO DE TEXTO -------------
+# ---------------------- SALVA A DATA GERADA EM 3 ARQUIVOS DE TEXTO E OS "LOTEIA" --------------------------------------
+
 
 import os               # importing the OS for path
 import cv2              # importing the OpenCV library
@@ -8,10 +9,10 @@ from PIL import Image   # importing Image library
 import matplotlib.pyplot as plt # Importing Plot library
 import NameFind
 
-face_cascade = cv2.CascadeClassifier('Haar/haarcascade_frontalcatface.xml')
-path = 'dataSet'                                                # path to the photos
+face_cascade = cv2.CascadeClassifier('C:/Users/joaob/Documents/Github/face-recog/Python/Haar/haarcascade_frontalcatface.xml')
+path = 'dataSet'        # path to the photos
 
-img = cv2.imread('Me4.jpg')        # -------------->>>>>>>>>>>>>>>>>>  The Image to be checked
+img = cv2.imread('C:/Users/joaob/Documents/Github/face-recog/Python/dataSet/User.2.1.jpg')        # -------------->>>>>>>>>>>>>>>>>>  The Image to be checked
 
 def getImageWithID(path):
     imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
@@ -34,9 +35,9 @@ face_number = 1
 IDs, FaceList = getImageWithID(path)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                   # Convert the Camera to gray
 faces = face_cascade.detectMultiScale(gray, 1.3, 4)            # Detect the faces and store the positions
-radTrain = open("SaveData/LBPH/LBPH_PIXEL_RADIUS.txt", "w+")   # open the file to write data
-neiTrain = open("SaveData/LBPH/LBPH_NEIGHBOURS.txt", "w+")     # open the file to write data
-cellTrain = open("SaveData/LBPH/LBPH_CELLS.txt", "w+")         # open the file to write data
+radTrain = open("C:/Users/joaob/Documents/Github/face-recog/Python/SaveData/LBPHLBPH_PIXEL_RADIUS.txt", "w+")   # open the file to write data
+neiTrain = open("C:/Users/joaob/Documents/Github/face-recog/Python/SaveData/LBPHLBPH_NEIGHBOURS.txt", "w+")     # open the file to write data
+cellTrain = open("C:/Users/joaob/Documents/Github/face-recog/Python/SaveData/LBPHLBPH_CELLS.txt", "w+")         # open the file to write data
 
 for (x, y, w, h) in faces:
     Face = cv2.resize((gray[y: y+h, x: x+w]), (110, 110))
@@ -45,39 +46,39 @@ for (x, y, w, h) in faces:
     rad_tabal_conf = []
     # --------------------------- Run tests for the radius from the centre ----------------
     for _ in range(54):
-        recog = cv2.face.createLBPHFaceRecognizer(radPix)     # creating EIGEN FACE RECOGNISER
-        print('TRAINING FOR  ' + str(radPix) + ' PIXELS FROM CENTRE')
+        recog = cv2.face.LBPHFaceRecognizer_create(radPix)     # creating EIGEN FACE RECOGNISER
+        print('Treinando para  ' + str(radPix) + ' pixels em relação ao centro')
         recog.train(FaceList, IDs)                            # The recogniser is trained using the images
-        print('LBPH FACE RECOGNISER TRAINED')
+        print('Método LBPH de reconhecimento facial treinado!')
         ID, conf = recog.predict(Face)
         rad_tabal_ID.append(ID)
         rad_tabal_conf.append(conf)
         radTrain.write(str(ID) + "," + str(conf) + "\n")
-        print ("FOR RADIUS: " + str(radPix) + " ID IS: " + str(ID) + " THE CONFIDENCE: " + str(conf))
+        print ("No raio: " + str(radPix) + " o ID é: " + str(ID) + " A confiança é: " + str(conf))
         radPix = radPix + 1
     # ---------------------------------------- 1ST PLOT -----------------------------------------------------
     plt.subplot(2, 1, 1)
     plt.plot(rad_tabal_ID)
-    plt.title('ID against Pixel Radius', fontsize=10)
+    plt.title('ID contrário ao raio dos pixels', fontsize=10)
     plt.axis([0, radPix, 0, 25])
     plt.ylabel('ID', fontsize=8)
-    plt.xlabel('Radius (Pixels)', fontsize=8)
+    plt.xlabel('Raio (em pixels)', fontsize=8)
     p2 = plt.subplot(2, 1, 2)
     plt.plot(rad_tabal_conf, 'red')
-    plt.title('Confidence against Pixel Radius', fontsize=10)
+    plt.title('Confiança em relação ao raio dos pixels', fontsize=10)
     p2.set_xlim(xmin=0)
     p2.set_xlim(xmax=radPix)
-    plt.ylabel('Confidence', fontsize=8)
-    plt.xlabel('Radius (Pixels)', fontsize=8)
+    plt.ylabel('Confiança', fontsize=8)
+    plt.xlabel('Raio (em pixels)', fontsize=8)
     plt.tight_layout()
     plt.show()
     # ---------------------------  Run tests for the neighbours -----------------------------
-    radPixel = input('ENTER THE IDEAL PIXEL RADIUS ')    # ------>> CHANGE THE PIXEL RADIUS IF A BETTER VALUE IS FOUND
+    radPixel = input('Digite o raio de pixels ideal: ')    # ------>> CHANGE THE PIXEL RADIUS IF A BETTER VALUE IS FOUND
     neighbour = 1
     nei_ID = []
     nei_conf = []
     for _ in range(13):
-        recog = cv2.face.createLBPHFaceRecognizer(radPixel, neighbour)  # creating FACE RECOGNISER
+        recog = cv2.face.LBPHFaceRecognizer_create(int(radPixel), int(neighbour))  # creating FACE RECOGNISER
         print('TRAINING FOR  ' + str(neighbour) + ' NEIGHBOURS')
         recog.train(FaceList, IDs)                                      # The recogniser is trained using the images
         print('LBPH FACE RECOGNISER TRAINED')
@@ -109,7 +110,7 @@ for (x, y, w, h) in faces:
     cell_ID = []
     cell_conf = []
     for _ in range(50):
-        recog = cv2.face.createLBPHFaceRecognizer(radPixel, neighbour, cellVal, cellVal)  # creating FACE RECOGNISER
+        recog = cv2.face.LBPHFaceRecognizer_create(radPixel, neighbour, cellVal, cellVal)  # creating FACE RECOGNISER
         print('TRAINING FOR  ' + str(cellVal) + ' CELLS')
         recog.train(FaceList, IDs)                                          # The recogniser is trained using the images
         print('LBPH FACE RECOGNISER TRAINED')

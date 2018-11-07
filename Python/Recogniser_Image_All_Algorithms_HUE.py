@@ -1,6 +1,6 @@
 # ------------------------------ RECONHECEDOR FACIAL PARA TODOS OS ALGORITMOS  ---------------------------------
 
-import cv2                   #   Importando o OPENCV
+import cv2                   #  Importando o OPENCV
 #import numpy as np          #  Importando o Numerical Python - Não necessário
 import NameFind
 import numpy as np
@@ -96,8 +96,8 @@ def Calculate(img, radius, neighbors):
         for y in range(y,a):
             threshold = pixels[x][y]
             binaryResult = ""
-            for tempX=(x-1) in range(x-1,x+2):
-				for tempX=(y-1) in range(y-1, y+2):
+            for tempX=x-1 in range(x-1,x+2):
+				for tempX=y-1 in range(y-1, y+2):
 					if tempX != x || tempY != y :
 						binaryResult += getBinaryString(int(pixels[tempX][tempY]), threshold)
 
