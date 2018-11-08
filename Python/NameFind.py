@@ -29,7 +29,7 @@ Names = FileRead()                                 # Rodando a função acima , 
 
 def ID2Name(ID, conf):
     if ID > 0:
-        NameString = "Name: " + Names[ID-1]        # Encontra o nome usando o ID do Index
+        NameString = "--"        # Encontra o nome usando o ID do Index
     else:
         NameString = " Face não reconhecida! " 
 
