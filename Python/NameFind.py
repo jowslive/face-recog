@@ -4,7 +4,7 @@ import cv2
 import math
 import time
 
-now_time = time.clock()
+now_time = time.perf_counter()
 
 face = cv2.CascadeClassifier('Haar/haarcascade_frontalcatface.xml')
 glass_cas = cv2.CascadeClassifier('Haar/haarcascade_eye_tree_eyeglasses.xml')
@@ -12,7 +12,6 @@ glass_cas = cv2.CascadeClassifier('Haar/haarcascade_eye_tree_eyeglasses.xml')
 WHITE = [255, 255, 255]
 
 def FileRead():
-#   Info = open("C:/Users/Alek's/Documents/GitHub/face-recog/Python/Names.txt", "r")        # Abrindo o arquivo Names.txt em modo de leitura
     Info = open("C:/Users/joaob/Documents/Github/face-recog/Python/Names.txt", "r")         # Abrindo o arquivo Names.txt em modo de leitura
     NAME = []                                      # "Vasilha" para guardar os nomes
     while (True):                                  # Lê todas as linhas no arquivo e guarda elas em duas "vasilhas"

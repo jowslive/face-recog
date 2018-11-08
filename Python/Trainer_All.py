@@ -1,41 +1,31 @@
 # -------------------------- TREINADOR PARA TODOS OS ALGORITMOS EM RECONHECIMENTO FACIAL-------------------------------------------
 
-import os                                               # importing the OS for path
-import cv2                                              # importing the OpenCV library
-import numpy as np                                      # importing Numpy library
-from PIL import Image                                   # importing Image library
+import os                                               # Importando o OS para passar uma pasta como caminho
+import cv2                                              # Importando o OpenCV 
+import numpy as np                                      # Importando o Numpy 
+from PIL import Image                                   # Importando o Image 
 
-EigenFace = cv2.face.EigenFaceRecognizer_create(15)      # creating EIGEN FACE RECOGNISER
-FisherFace = cv2.face.FisherFaceRecognizer_create(2)     # Create FISHER FACE RECOGNISER
-LBPHFace = cv2.face.LBPHFaceRecognizer_create(1, 1, 7,7) # Create LBPH FACE RECOGNISER
+LBPHFace = cv2.face.LBPHFaceRecognizer_create(1, 1, 7,7) # CRIA O MÉTODO LBPH DE RECONHECIMENTO FACIAL
 
-path = 'dataSet'                                        # path to the photos
+path = 'C:/Users/joaob/Documents/Github/face-recog/Python/dataSet'   # Caminho para a pasta que contém as fotos
 def getImageWithID (path):
     imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
     FaceList = []
     IDs = []
     for imagePath in imagePaths:
-        faceImage = Image.open(imagePath).convert('L')  # Open image and convert to gray
-        faceImage = faceImage.resize((110,110))         # resize the image so the EIGEN recogniser can be trained
-        faceNP = np.array(faceImage, 'uint8')           # convert the image to Numpy array
-        ID = int(os.path.split(imagePath)[-1].split('.')[1])    # Retreave the ID of the array
-        FaceList.append(faceNP)                         # Append the Numpy Array to the list
-        IDs.append(ID)                                  # Append the ID to the IDs list
-        cv2.imshow('Training Set', faceNP)              # Show the images in the list
-        cv2.waitKey(1)
-    return np.array(IDs), FaceList                      # The IDs are converted in to a Numpy array
+        faceImage = Image.open(imagePath).convert('L')          # Abre a imagem e converte para cinza
+        faceImage = faceImage.resize((110,110))                 # Redimenciona a imagem para que o método reconhecedor LBPH possa ser treinado
+        faceNP = np.array(faceImage, 'uint8')                   # Converte a imagem em um array Numpy 
+        ID = int(os.path.split(imagePath)[-1].split('.')[1])    # Recupera o ID do array
+        FaceList.append(faceNP)                                 # Acrescenta o array Numpy para a lista
+        IDs.append(ID)                                          # Acrescenta o ID para a lista de IDs
+        cv2.imshow('Training Set', faceNP)                      # Mostra as imagens na lista
+        cv2.waitKey(75)
+    return np.array(IDs), FaceList                              # Os IDs serão convertidos em um array Numpy
 IDs, FaceList = getImageWithID(path)
 
-# ------------------------------------ TRAING THE RECOGNISER ----------------------------------------
+# ------------------------------------ TREINANDO O RECONHECIMENTO FACIAL ----------------------------------------
 print('TREINANDO OS ARQUIVOS......')
-EigenFace.train(FaceList, IDs)                          # O reconhecedor é treinado usando as imagens
-print('MÉTODO EIGEN DE RECONHECIMENTO FACIAL COMPLETADO...')
-EigenFace.save('Recogniser/trainingDataEigan.xml')
-print('ARQUIVO SALVO..')
-FisherFace.train(FaceList, IDs)
-print('MÉTODO FISHER DE RECONHECIMENTO FACIAL COMPLETADO...')
-FisherFace.save('Recogniser/trainingDataFisher.xml')
-print('Arquivo Fisher XML salvo... ')
 LBPHFace.train(FaceList, IDs)
 print('MÉTODO LBPH RECONHECIDOR FACIAL COMPLETADO...')
 LBPHFace.save('Recogniser/trainingDataLBPH.xml')
