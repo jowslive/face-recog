@@ -2,11 +2,11 @@
 # ---------------------- SALVA A DATA GERADA EM 3 ARQUIVOS DE TEXTO E OS "PREENCHE" --------------------------------------
 
 
-import os               # importando the OS for path
-import cv2              # importando the OpenCV library
-import numpy as np      # importando Numpy library
-from PIL import Image   # importando Image library
-import matplotlib.pyplot as plt # Importando Plot library
+import os               # importando the OS para fornecer uma pasta como caminho
+import cv2              # importando the OpenCV 
+import numpy as np      # importando Numpy 
+from PIL import Image   # importando Image 
+import matplotlib.pyplot as plt # Importando Plot 
 import NameFind
 
 face_cascade = cv2.CascadeClassifier('C:/Users/joaob/Documents/Github/face-recog/Python/Haar/haarcascade_frontalcatface.xml')
@@ -47,7 +47,7 @@ for (x, y, w, h) in faces:
     rad_tabal_conf = []
     # --------------------------- Executa os testes para o raio a partir do centro ----------------
     for _ in range(54):
-        recog = cv2.face.LBPHFaceRecognizer_create(radPix)     # Criando o método LBPH FACE
+        recog = cv2.face.LBPHFaceRecognizer_create(radPix)     # Criando o método LBPH para reconhecimento facial
         print('Treinando o pixel  ' + str(radPix) + ' em relação ao centro')
         recog.train(FaceList, IDs)                            # O reconhecedor é treinado usando as imagens
         print('O Método LBPH de reconhecimento facial está sendo treinado,por favor aguarde!')

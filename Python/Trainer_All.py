@@ -20,7 +20,7 @@ def getImageWithID (path):
         FaceList.append(faceNP)                                 # Acrescenta o array Numpy para a lista
         IDs.append(ID)                                          # Acrescenta o ID para a lista de IDs
         cv2.imshow('Training Set', faceNP)                      # Mostra as imagens na lista
-        cv2.waitKey(75)
+        cv2.waitKey(125)
     return np.array(IDs), FaceList                              # Os IDs serão convertidos em um array Numpy
 IDs, FaceList = getImageWithID(path)
 

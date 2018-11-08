@@ -60,7 +60,7 @@ crop_img = gray[y:y+h, x:x+w]
 crop_imgx = grayx[y:y+h, x:x+w]
 
 
-cv2.imshow('LBPH Face 1', gray)            # Mostrando a imagem
-cv2.imshow('LBPH Face 2', grayx)           # Mostrando a imagem 2
+cv2.imshow('Imagem 1', gray)            # Mostrando a imagem
+cv2.imshow('Imagem 2', grayx)           # Mostrando a imagem 2
 cv2.waitKey()
 cv2.destroyAllWindows()
